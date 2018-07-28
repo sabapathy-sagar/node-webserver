@@ -1,8 +1,10 @@
 const express = require('express');
 const hbs = require('hbs');
 const fs = require('fs');
-
 const app = express();
+
+//ser port based on environment variable, for local development use port number 3000
+const port = process.env.PORT || 3000;
 
 //set handlebars as the view engine 
 app.set('view engine', 'hbs');
@@ -58,6 +60,6 @@ app.get('/bad', (req,res) => {
 });
 
 //listeneing on port 3000
-app.listen(3000, () => {
-    console.log('server running on port 3000');
+app.listen(port, () => {
+    console.log(`server running on port ${port}`);
 });
